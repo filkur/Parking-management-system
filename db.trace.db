@@ -1,0 +1,13 @@
+2020-09-21 23:10:14 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Błąd składniowy w wyrażeniu SQL "CREATE TABLE SPACES{
+    ID[*] INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    HIRED BOOLEAN
+}"; oczekiwano "long"
+Syntax error in SQL statement "CREATE TABLE SPACES{
+    ID[*] INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    HIRED BOOLEAN
+}"; expected "long"; SQL statement:
+CREATE TABLE spaces{
+    id int unsigned PRIMARY KEY auto_increment,
+    hired BOOLEAN
+} [42001-200]
