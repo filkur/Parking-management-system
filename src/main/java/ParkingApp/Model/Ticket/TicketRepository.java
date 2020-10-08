@@ -2,7 +2,6 @@ package ParkingApp.Model.Ticket;
 
 import ParkingApp.Hibernate.HibernateUtil;
 import ParkingApp.MenuApp.MenuBuyTicket.SelectTicket;
-import ParkingApp.Model.Space.Space;
 
 import java.util.Optional;
 
