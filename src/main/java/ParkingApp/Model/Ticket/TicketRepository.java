@@ -6,18 +6,15 @@ import ParkingApp.MenuApp.MenuBuyTicket.SelectTicket;
 import java.util.Optional;
 
 public class TicketRepository {
-    public boolean addTicket(){
+    public boolean addTicket(Ticket ticket){
         var session = HibernateUtil.getSessionFactory().openSession();
         var transaction = session.beginTransaction();
 
-        Ticket ticket;
-        SelectTicket selectTicket = new SelectTicket();
-        ticket = selectTicket.setTicket();
         session.save(ticket);
-
         transaction.commit();
         session.close();
-        return false;
+        //return false;
+        return true;
     }
     public boolean showTicket(String vehicleId){
         var session = HibernateUtil.getSessionFactory().openSession();

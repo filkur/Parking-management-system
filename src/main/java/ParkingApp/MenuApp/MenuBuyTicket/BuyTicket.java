@@ -10,7 +10,10 @@ public class BuyTicket {
         TicketRepository ticketRepository = new TicketRepository();
         if (!ShowParking.showAllSpaces())
             return false;
-        ticketRepository.addTicket();
+        Ticket ticket;
+        SelectTicket selectTicket = new SelectTicket();
+        ticket = selectTicket.setTicket();
+        ticketRepository.addTicket(ticket);
         return true;
     }
 
