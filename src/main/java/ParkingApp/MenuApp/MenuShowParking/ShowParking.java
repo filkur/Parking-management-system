@@ -9,7 +9,7 @@ import java.util.Optional;
 public class ShowParking {
     public static boolean showAllSpaces() {
         SpaceRepository spaceRepository = new SpaceRepository();
-        Optional<List<Space>> spaces = spaceRepository.findEmptySpaces();
+        Optional<List<Space>> spaces = spaceRepository.findEmptySpaces("from Space where hired=false");
         if (spaces.isPresent()) {
             List<Space> spaceList = spaces.get();
             if (spaceList.isEmpty()){

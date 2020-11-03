@@ -6,16 +6,18 @@ import java.util.List;
 import java.util.Optional;
 
 public class SpaceRepository {
-    public Optional<List<Space>> findEmptySpaces(){
-        {
-            var session = HibernateUtil.getSessionFactory().openSession();
-            var transaction = session.beginTransaction();
+    public Optional<List<Space>> findEmptySpaces(String query){
+            try {
+                var session = HibernateUtil.getSessionFactory().openSession();
+                var transaction = session.beginTransaction();
 
-            var result = session.createQuery("from Space where hired=false", Space.class).list();
+                var result = session.createQuery(query, Space.class).list();
 
-            transaction.commit();
-            session.close();
-            return Optional.ofNullable(result);
+                transaction.commit();
+                session.close();
+                return Optional.ofNullable(result);
+            } catch (NullPointerException exception){
+                throw new NullPointerException("query is a null object!");
         }
     }
     public Optional<Space> findById(int id){
